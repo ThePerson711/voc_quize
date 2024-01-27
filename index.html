@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vocabulary</title>
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+  <div class="top-panel" id="top-panel">
+    <div class="search-panel" id="search-panel">
+      <input type="text" id="search-input" class="search-input" 
+        placeholder="Search" oninput="WordsList();">
+    </div>
+  </div>
+
+  <div class="search-l" id="search-l">
+    <div class="main-panel" id="main-panel">
+      </div>
+    <div class="changer" id="changer" onclick="
+      if (lang_dir === 'eng-to-uz') {
+        lang_dir = 'uz-to-eng';
+      } else {
+        lang_dir = 'eng-to-uz';
+      }
+      WordsList();
+    ">
+      Changer
+    </div>
+  </div>
+   
+  <div class="word-l" id="word-l">
+    <div class="main-panel" id="main-panel">
+    </div>
+  </div>
+
+  <div class="menu-panel" id="menu-panel">
+    <div class="menu-element" id="menu-search " 
+      onclick="SearchList();">
+      Search
+    </div>
+    <div class="menu-element" id="menu-words"
+      onclick="WordList();">
+      Words
+    </div>
+  </div>
+  <script src="voc.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

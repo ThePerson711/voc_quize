@@ -1,0 +1,163 @@
+:root {
+  --screen-width: calc(1vw*100);
+  --screen-height: calc(1vh*100);
+  --menu-color: rgb(75, 75, 228);
+  --menu-panel-width: calc(1vw*100);
+  --menu-panel-height: calc(1vh*10);
+  --menu-panel-border-radius: calc(1vh*5);
+  --menu-element-width: calc(1vh*6);
+  --menu-element-height: calc(1vh*6);
+  --menu-element-border-radius: calc(1vh*1.5);
+  --menu-element-color: white;
+  --search-panel-width: calc(1vw*70);
+  --search-panel-height: calc(1vh*6);
+  --search-panel-border-radius: calc(1vh*3);
+  --search-panel-background-color: white; 
+  --search-panel-border-color: black; 
+  --search-input-width: calc(1vw*70*0.8);
+  --list-height: calc(1vh*80);
+  --changer-width: calc(1vh*8);
+  --changer-height: calc(1vh*8);
+}
+body {
+  background-color: aqua;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-panel,
+.top-panel {
+  position: absolute;
+  background-color: var(--menu-color);
+  width: var(--menu-panel-width);
+  height: var(--menu-panel-height);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.menu-panel {
+  bottom: 0px;
+  border-radius: var(--menu-panel-border-radius) 
+    var(--menu-panel-border-radius) 0 0;
+}
+.top-panel {
+  top: 0px;
+  border-radius: 0 0 var(--menu-panel-border-radius) 
+    var(--menu-panel-border-radius);
+}
+
+.menu-element {
+  width: var(--menu-element-width);
+  height: var(--menu-element-height);
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border:solid 1px var(--menu-element-color);
+  color: var(--menu-element-color);
+  border-radius: var(--menu-element-border-radius);
+}
+
+.search-panel {
+  background-color: var(--search-panel-background-color);
+  border: solid 2px var(--search-panel-border-color);
+  width: var(--search-panel-width);
+  height: var(--search-panel-height);
+  border-radius: var(--search-panel-border-radius);
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: center;
+}
+.search-input {
+  right: 0;
+  background-color: var(--search-panel-background-color);
+  border: none;
+  width: var(--search-input-width);
+  height: var(--search-panel-height);
+  border-radius: 0 var(--search-panel-border-radius) 
+    var(--search-panel-border-radius) 0;
+    font-size: 24px;
+}
+.main-panel {
+  background-color: rgb(215, 203, 199);
+  width: 340px;
+  height: 480px;
+  border-radius: 20px;
+  border: solid 4px rgb(120, 120, 120);
+  position: absolute;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  flex: 50px;
+  padding: 12px 16px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.lines {
+  margin: 2px;
+  width: 86%;
+  max-height: max-content;
+  border: solid 2px gray;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  padding: 8px 18px;
+  font-size: 20px;
+  font-weight: bold;
+  color: azure;
+  cursor: pointer;
+}
+.lines p {
+  padding: 0;
+  margin: 0;
+}
+.lines u {
+  color: blue;
+}
+.lines:nth-child(2n) {
+  background-color: red;
+}
+.lines:nth-child(2n+1) {
+  background-color: green;
+}
+
+.eng-text {
+  color: aqua;
+}
+.uzb-text {
+  color: rgb(238, 229, 140);
+}
+.changer {
+  background-color: violet;
+  width: var(--changer-width);
+  height: var(--changer-width);
+  position: absolute;
+  border-radius: 14px;
+  color: rgb(77, 45, 45);
+  font-size: 14px;
+  bottom: 10px;
+  right: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.search-l {
+  top: var(--menu-panel-height);
+  position: absolute;
+  background-color: transparent;
+  width: var(--screen-width);
+  height: var(--list-height);
+  margin: 0;
+  display: block;
+}
