@@ -1,111 +1,98 @@
 // vocabulary
 let vocabulary = [
   {
+    eng: "book",
+    uzb: [
+      "kitob",
+      "harid qilmoq"
+    ],
+    data: 27
+  },
+  {
     eng: 'sail',
     uzb: [
       'yelkan',
       'yelkanli qayiq',
       'qayiqda suzmoq'
     ],
-    data: {
-      day: 25,
-      month: 1,
-      year: 2024
-    },
-    corect: 0,
-    incorect: 0
+    data: 27
   },
   {
     eng: 'well',
-    /*uz: {
-      noun: [],
-      verb: [],
-      adj: ['katta'],
-      adv: []
-    },*/
     uzb: [
       'yaxshi',
       'quduq'
     ],
-    data: {
-      day: 25,
-      month: 1,
-      year: 2024
-    },
-    corect: 0,
-    incorect: 0
+    data: 27
   },
   {
-    eng: 'big',
+    eng: '0',
     uzb: [
-      'katta'
+      '0'
     ],
-    data: {
-      day: 25,
-      month: 1,
-      year: 2024
-    },
-    corect: 0,
-    incorect: 0
+    data: 27
   },
   {
-    eng: "one",
+    eng: '9',
     uzb: [
-      "bir"
-    ]
+      '9'
+    ],
+    data: 27
   },
   {
-    eng: "two",
+    eng: '8',
     uzb: [
-      "ikki"
-    ]
+      '8'
+    ],
+    data: 27
   },
   {
-    eng: "three",
+    eng: '7',
     uzb: [
-      "uch"
-    ]
+      '7'
+    ],
+    data: 27
   },
   {
-    eng: "four",
+    eng: '6',
     uzb: [
-      "to`rt"
-    ]
+      '6'
+    ],
+    data: 27
   },
   {
-    eng: "five",
+    eng: '5',
     uzb: [
-      "besh"
-    ]
+      '5'
+    ],
+    data: 27
   },
   {
-    eng: "six",
+    eng: '4',
     uzb: [
-      "olti"
-    ]
+      '4'
+    ],
+    data: 27
   },
   {
-    eng: "seven",
+    eng: '3',
     uzb: [
-      "yetti"
-    ]
+      '3'
+    ],
+    data: 27
   },
   {
-    eng: "eight",
+    eng: '2',
     uzb: [
-      "sakkiz"
-    ]
+      '2'
+    ],
+    data: 27
   },
   {
-    eng: "nine",
+    eng: '1',
     uzb: [
-      "to`qqiz"
-    ]
+      '1'
+    ],
+    data: 27
   },
-  {
-    eng: "ten",
-    uzb: [
-      "o`n"
-    ]
-  }
 ];
