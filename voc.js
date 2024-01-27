@@ -26,72 +26,72 @@ let vocabulary = [
     data: 27
   },
   {
-    eng: '0',
+    eng: 'zero',
     uzb: [
-      '0'
+      'nol'
     ],
     data: 27
   },
   {
-    eng: '9',
+    eng: 'nine',
     uzb: [
-      '9'
+      'toqqiz'
     ],
     data: 27
   },
   {
-    eng: '8',
+    eng: 'eight',
     uzb: [
-      '8'
+      'sakkiz'
     ],
     data: 27
   },
   {
-    eng: '7',
+    eng: 'seven',
     uzb: [
-      '7'
+      'yetti'
     ],
     data: 27
   },
   {
-    eng: '6',
+    eng: 'siz',
     uzb: [
-      '6'
+      'olti'
     ],
     data: 27
   },
   {
-    eng: '5',
+    eng: 'five',
     uzb: [
-      '5'
+      'besh'
     ],
     data: 27
   },
   {
-    eng: '4',
+    eng: 'four',
     uzb: [
-      '4'
+      'tort'
     ],
     data: 27
   },
   {
-    eng: '3',
+    eng: 'three',
     uzb: [
-      '3'
+      'uch'
     ],
     data: 27
   },
   {
-    eng: '2',
+    eng: 'two',
     uzb: [
-      '2'
+      'ikki'
     ],
     data: 27
   },
   {
-    eng: '1',
+    eng: 'one',
     uzb: [
-      '1'
+      'bir'
     ],
     data: 27
   },

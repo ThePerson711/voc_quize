@@ -12,6 +12,7 @@ let let_leng = 120;
 list = document.getElementById('main-panel');
 list1 = document.getElementById('main-panel-1');
 let lang_dir = 'eng-to-uz';
+let tested = 0;
 //  lang_dir = 'uz-to-eng';
 
 WordList();
@@ -89,31 +90,69 @@ function Words() {
 function WordChoise(choise_) {
     document.getElementById('word-l').style = "display: none;"
     document.getElementById('quize-l').style = "display: flex;"    
+    tested = 0;
     Test();
 }
 
 function Test() {
-    test_num = 10;
-    
+
+    tested++;
+    if (tested <= 10) {
         RanNum = Math.floor(Math.random() * vocabulary.length);
         document.getElementById('eng-word').innerHTML = vocabulary[RanNum].eng;
- 
-        RanNum_1 = Math.floor(Math.random() * vocabulary.length); 
-        RanNum_2 = Math.floor(Math.random() * vocabulary.length);
-        RanNum_3 = Math.floor(Math.random() * vocabulary.length);
-        RanNum_4 = Math.floor(Math.random() * vocabulary.length);
-
-
-
-
-
+        RightAnswer = Math.floor(Math.random() * 4) + 1;
+        RanNum_1 = RanNum;
+        RanNum_2 = RanNum;
+        RanNum_3 = RanNum;
+        RanNum_4 = RanNum;
+        while (RanNum === RanNum_1) {
+            RanNum_1 = Math.floor(Math.random() * vocabulary.length);
+        }
+        while (RanNum === RanNum_2 || RanNum_1 === RanNum_2) {
+            RanNum_2 = Math.floor(Math.random() * vocabulary.length);
+        }
+        while (RanNum === RanNum_3 || RanNum_1 === RanNum_3 
+                || RanNum_2 === RanNum_3) {
+            RanNum_3 = Math.floor(Math.random() * vocabulary.length);
+        }
+        while (RanNum === RanNum_4 || RanNum_1 === RanNum_4 
+                || RanNum_2 === RanNum_4 || RanNum_3 === RanNum_4) {
+            RanNum_4 = Math.floor(Math.random() * vocabulary.length);
+        }
+            
+        if (RightAnswer === 1) {
+            RanNum_1 = RanNum;
+        } else if (RightAnswer === 2) {
+            RanNum_2 = RanNum;
+        }
+        else if (RightAnswer === 3) {
+            RanNum_3 = RanNum;
+        }
+        else if (RightAnswer === 4) {
+            RanNum_4 = RanNum;
+        }
 
 
         document.getElementById(`option_1`).innerHTML = vocabulary[RanNum_1].uzb;    
         document.getElementById(`option_2`).innerHTML = vocabulary[RanNum_2].uzb;    
         document.getElementById(`option_3`).innerHTML = vocabulary[RanNum_3].uzb;    
         document.getElementById(`option_4`).innerHTML = vocabulary[RanNum_4].uzb;    
+    } else {
+        alert('fucj');
+        WordList();
+    }
+}
 
-   
-      
+
+function Selected(num_) {
+    if (num_ === RightAnswer) {
+        document.getElementById(`option_${num_}`).style = "background-color: green;";
+    } else {
+        document.getElementById(`option_${num_}`).style = "background-color: red;";
+    }
+    id = setInterval( () => {
+        document.getElementById(`option_${num_}`).style = "background-color: violet;";
+        Test();
+        clearInterval(id);
+    },1000)
 }
