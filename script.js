@@ -21,6 +21,11 @@ let year_;
 let month_;
 let day_;
 let day_week_;
+let answer = {
+    correct: 0,
+    incorrect: 0,
+    unselect: 0
+};
 
 SearchList();
 
@@ -118,6 +123,9 @@ function WordChoise(choise_) {
             }
         }
     }
+    answer.correct = 0;
+    answer.incorrect = 0;
+    answer.unselect = 0;
     Test();
 }
 
@@ -166,7 +174,7 @@ function Test() {
         document.getElementById(`option_3`).innerHTML = ArrToStr(voc[RanNum_3].uzb);    
         document.getElementById(`option_4`).innerHTML = ArrToStr(voc[RanNum_4].uzb);    
     } else {
-        alert('fucj');
+        alert(`Correct: ${answer.correct}\nIn-correct: ${answer.incorrect}`);
         WordList();
     }
 }
@@ -187,16 +195,18 @@ function ArrToStr(obj_) {
 function Selected(num_) {
     if (num_ === RightAnswer) {
         document.getElementById(`option_${num_}`).style = "background-color: green;";
+        answer.correct++;
     } else {
         document.getElementById(`option_${num_}`).style = "background-color: red;";
         document.getElementById(`option_${RightAnswer}`).style = "background-color: green;";
+        answer.incorrect++;
     }
     id = setInterval( () => {
         document.getElementById(`option_${num_}`).style = "background-color: violet;";
         document.getElementById(`option_${RightAnswer}`).style = "background-color: violet;";
         Test();
         clearInterval(id);
-    },1000)
+    },500)
 }
 
 function day_for_ch(str_) {
