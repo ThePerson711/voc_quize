@@ -13,10 +13,16 @@ list = document.getElementById('main-panel');
 list1 = document.getElementById('main-panel-1');
 let lang_dir = 'eng-to-uz';
 let tested = 0;
+let voc = [];
+let day_for_now = 0;
 //  lang_dir = 'uz-to-eng';
+let date_;
+let year_;
+let month_;
+let day_;
+let day_week_;
 
-WordList();
-WordChoise('all');
+SearchList();
 
 function WordsList() {
     inp_s = document.getElementById('search-input').value;
@@ -64,10 +70,11 @@ function WordsList() {
 }
 
 function SearchList() {
-    document.getElementById('search-l').style = "display: flex;"
-    document.getElementById('search-panel').style = "display: flex;"
-    document.getElementById('word-l').style = "display: none;" 
-    document.getElementById('quize-l').style = "display: none;" 
+    document.getElementById('search-l').style = "display: flex;";
+    document.getElementById('search-panel').style = "display: flex;";
+    document.getElementById('word-l').style = "display: none;"; 
+    document.getElementById('quize-l').style = "display: none;";
+    document.getElementById('test-indicator').style = "display: none;";
     WordsList();   
 }
 
@@ -75,7 +82,8 @@ function WordList() {
     document.getElementById('search-l').style = "display: none;"
     document.getElementById('search-panel').style = "display: none;"
     document.getElementById('quize-l').style = "display: none;" 
-    document.getElementById('word-l').style = "display: flex;"    
+    document.getElementById('word-l').style = "display: flex;"   
+    document.getElementById('test-indicator').style = "display: flex;"   
     Words();
 }
 
@@ -91,33 +99,53 @@ function WordChoise(choise_) {
     document.getElementById('word-l').style = "display: none;"
     document.getElementById('quize-l').style = "display: flex;"    
     tested = 0;
+    if (choise_ === 'all') {
+        voc = [];
+        for (let i = 0; i < vocabulary.length; i++) {
+            voc.push({
+                eng: vocabulary[i].eng,
+                uzb: vocabulary[i].uzb,
+              });
+        }
+    } {
+        voc = [];
+        for (let i = 0; i < vocabulary.length; i++) {
+            if (vocabulary[i].data === day_for_ch(choise_)) {
+                voc.push({
+                    eng: vocabulary[i].eng,
+                    uzb: vocabulary[i].uzb,
+                  });
+            }
+        }
+    }
     Test();
 }
 
 function Test() {
 
     tested++;
-    if (tested <= 10) {
-        RanNum = Math.floor(Math.random() * vocabulary.length);
-        document.getElementById('eng-word').innerHTML = vocabulary[RanNum].eng;
+    num_of_t = 10;
+    if (tested <= num_of_t) {
+        RanNum = Math.floor(Math.random() * voc.length);
+        document.getElementById('eng-word').innerHTML = voc[RanNum].eng;
         RightAnswer = Math.floor(Math.random() * 4) + 1;
         RanNum_1 = RanNum;
         RanNum_2 = RanNum;
         RanNum_3 = RanNum;
         RanNum_4 = RanNum;
         while (RanNum === RanNum_1) {
-            RanNum_1 = Math.floor(Math.random() * vocabulary.length);
+            RanNum_1 = Math.floor(Math.random() * voc.length);
         }
         while (RanNum === RanNum_2 || RanNum_1 === RanNum_2) {
-            RanNum_2 = Math.floor(Math.random() * vocabulary.length);
+            RanNum_2 = Math.floor(Math.random() * voc.length);
         }
         while (RanNum === RanNum_3 || RanNum_1 === RanNum_3 
                 || RanNum_2 === RanNum_3) {
-            RanNum_3 = Math.floor(Math.random() * vocabulary.length);
+            RanNum_3 = Math.floor(Math.random() * voc.length);
         }
         while (RanNum === RanNum_4 || RanNum_1 === RanNum_4 
                 || RanNum_2 === RanNum_4 || RanNum_3 === RanNum_4) {
-            RanNum_4 = Math.floor(Math.random() * vocabulary.length);
+            RanNum_4 = Math.floor(Math.random() * voc.length);
         }
             
         if (RightAnswer === 1) {
@@ -133,26 +161,69 @@ function Test() {
         }
 
 
-        document.getElementById(`option_1`).innerHTML = vocabulary[RanNum_1].uzb;    
-        document.getElementById(`option_2`).innerHTML = vocabulary[RanNum_2].uzb;    
-        document.getElementById(`option_3`).innerHTML = vocabulary[RanNum_3].uzb;    
-        document.getElementById(`option_4`).innerHTML = vocabulary[RanNum_4].uzb;    
+        document.getElementById(`option_1`).innerHTML = ArrToStr(voc[RanNum_1].uzb);    
+        document.getElementById(`option_2`).innerHTML = ArrToStr(voc[RanNum_2].uzb); 
+        document.getElementById(`option_3`).innerHTML = ArrToStr(voc[RanNum_3].uzb);    
+        document.getElementById(`option_4`).innerHTML = ArrToStr(voc[RanNum_4].uzb);    
     } else {
         alert('fucj');
         WordList();
     }
 }
 
+// 
+function ArrToStr(obj_) {
+    str_ = '';
+    for (let i = 0; i < obj_.length; i++) {
+        str_ += obj_[i];
+
+        if (i !== obj_.length - 1) {
+            str_ += ', ';
+        }
+    }   
+    return str_;
+}
 
 function Selected(num_) {
     if (num_ === RightAnswer) {
         document.getElementById(`option_${num_}`).style = "background-color: green;";
     } else {
         document.getElementById(`option_${num_}`).style = "background-color: red;";
+        document.getElementById(`option_${RightAnswer}`).style = "background-color: green;";
     }
     id = setInterval( () => {
         document.getElementById(`option_${num_}`).style = "background-color: violet;";
+        document.getElementById(`option_${RightAnswer}`).style = "background-color: violet;";
         Test();
         clearInterval(id);
     },1000)
 }
+
+function day_for_ch(str_) {
+    DetectDate();
+    day_for_now = 0;
+    day_for_now += day_;
+    if (month_ === 1) {
+        day_for_now += 31;
+    } else if (month_ === 2) {
+        day_for_now += 60;
+    }
+    if (str_ === 'today') {
+        day_for_now = day_for_now;
+    } else if (str_ === 'yesterday') {
+        day_for_now--;
+    }
+    console.log('--'+day_for_now);
+
+    return day_for_now;
+}
+
+function DetectDate() {
+    date_ = new Date();
+    year_ = date_.getFullYear();
+    month_ = date_.getMonth();
+    day_ = date_.getDate();
+    day_week_ = date_.getDay();
+}
+
+console.log(day_for_ch('today'));

@@ -12,6 +12,9 @@
         <input type="text" id="search-input" class="search-input" 
           placeholder="Search" oninput="WordsList();">
       </div>
+      <div class="test-indicator" id="test-indicator">
+        Words<p>asd</p>
+      </div>
   </div>
 
   <div class="search-l" id="search-l">
@@ -20,12 +23,14 @@
     <div class="changer" id="changer" onclick="
       if (lang_dir === 'eng-to-uz') {
         lang_dir = 'uz-to-eng';
+        document.getElementById('changer').innerHTML=`UZ >> ENG`;
       } else {
         lang_dir = 'eng-to-uz';
+        document.getElementById('changer').innerHTML='ENG >> UZ';
       }
       WordsList();
     ">
-      Changer
+      ENG >> UZ
     </div>
   </div>
    
@@ -36,25 +41,24 @@
 
   <div class="quize-l" id="quize-l">
     <div class="quize-panel" id="quize-panel">
-    
       <div class="eng-word" id="eng-word">
         Book
       </div>
 
       <div class="options" id="options">
-        <div class="option_1" id="option_1" 
+        <div class="options_" id="option_1" 
           onclick="Selected(1);">
           kitob
         </div>
-        <div class="option_2" id="option_2"
+        <div class="options_" id="option_2"
           onclick="Selected(2);">
           daftar
         </div>
-        <div class="option_3" id="option_3"
+        <div class="options_" id="option_3"
           onclick="Selected(3);">
-          qalam
+          qalamss
         </div>
-        <div class="option_4" id="option_4"
+        <div class="options_" id="option_4"
           onclick="Selected(4);">
           okay
         </div>  
@@ -71,7 +75,7 @@
     </div>
     <div class="menu-element" id="menu-words"
       onclick="WordList();">
-      Words
+      Test
     </div>
   </div>
   <script src="voc.js"></script>

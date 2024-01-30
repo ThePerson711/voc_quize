@@ -1,98 +1,181 @@
 // vocabulary
 let vocabulary = [
   {
-    eng: "book",
+    eng: "regain",
     uzb: [
-      "kitob",
-      "harid qilmoq"
+      "qaytarib olmoq",
+      "qayta tiklamoq"
     ],
-    data: 27
+    data: 30
   },
   {
-    eng: 'sail',
+    eng: "clarity",
     uzb: [
-      'yelkan',
-      'yelkanli qayiq',
-      'qayiqda suzmoq'
+      "aniqlik",
+      "tiniqlik"
     ],
-    data: 27
+    data: 30
   },
   {
-    eng: 'well',
+    eng: "tight",
     uzb: [
-      'yaxshi',
-      'quduq'
+      "mahkam",
+      "qattiq",
+      "jips"
     ],
-    data: 27
+    data: 30
   },
   {
-    eng: 'zero',
+    eng: "prompt",
     uzb: [
-      'nol'
+      "undamoq",
+      "sabab bo`lmoq"
     ],
-    data: 27
+    data: 30
   },
   {
-    eng: 'nine',
+    eng: "repeatedly",
     uzb: [
-      'toqqiz'
+      "qayta-qayta"
     ],
-    data: 27
+    data: 30
   },
   {
-    eng: 'eight',
+    eng: "moist",
     uzb: [
-      'sakkiz'
+      "nam"
     ],
-    data: 27
+    data: 30
   },
   {
-    eng: 'seven',
+    eng: "skirmish",
     uzb: [
-      'yetti'
+      "otishma"
     ],
-    data: 27
+    data: 30
   },
   {
-    eng: 'siz',
+    eng: "sand dune / dune",
     uzb: [
-      'olti'
+      "qumtepa, qumtepalik"
     ],
-    data: 27
+    data: 30
   },
   {
-    eng: 'five',
+    eng: "desolate",
     uzb: [
-      'besh'
+      "kimsasiz"
     ],
-    data: 27
+    data: 30
   },
   {
-    eng: 'four',
+    eng: "vegetation",
     uzb: [
-      'tort'
+      "o`simliklat"
     ],
-    data: 27
+    data: 30
   },
   {
-    eng: 'three',
+    eng: "wither",
     uzb: [
-      'uch'
+      "qurib qolmoq", 
+      "so`limoq"
     ],
-    data: 27
+    data: 30
   },
   {
-    eng: 'two',
+    eng: "envelop",
     uzb: [
-      'ikki'
+      "o`ramoq", 
+      "qoplab olmoq"
     ],
-    data: 27
+    data: 30
   },
   {
-    eng: 'one',
+    eng: "dread",
     uzb: [
-      'bir'
+      "dahshat(ga tushmoq)",
+      "vahima(ga tushmoq)"
     ],
-    data: 27
+    data: 30
   },
+  {
+    eng: "adjust",
+    uzb: [
+      "sozlamoq",
+      "moslashmoq"
+    ],
+    data: 30
+  },
+  {
+    eng: "harsh",
+    uzb: [
+      "og`ir",
+      "ayovsiz",
+      "qattiq"
+    ],
+    data: 30
+  },
+  {
+    eng: "acuire",
+    uzb: [
+      "olmoq",
+      "egallamoq",
+      "qo`lga kiritmoq"
+    ],
+    data: 30
+  },
+  {
+    eng: "potion",
+    uzb: [
+      "damlama",
+      "eliksiz"
+    ],
+    data: 30
+  },
+  {
+    eng: "regarding",
+    uzb: [
+      "haqida",
+      "borasida",
+      "bo`yicha"
+    ],
+    data: 30
+  },
+  {
+    eng: "store",
+    uzb: [
+      "do`kon",
+      "saqlamoq"
+    ],
+    data: 30
+  },
+  {
+    eng: "stamina",
+    uzb: [
+      "chidamlilik",
+      "bardoshlilik"
+    ],
+    data: 30
+  },
+  {
+    eng: "venture",
+    uzb: [
+      "tavakkal(qilmoq)",
+      "qaltis-ish(qilmoq)"
+    ],
+    data: 30
+  }
 ];
+  ///
+  /*
+,
+  {
+    eng: "",
+    uzb: [
+      ""
+    ],
+    data: 30
+  }
+  */
+  ///
