@@ -71,7 +71,7 @@ let vocabulary = [
   {
     eng: "vegetation",
     uzb: [
-      "o`simliklat"
+      "o`simliklar"
     ],
     data: 30
   },
@@ -117,7 +117,7 @@ let vocabulary = [
     data: 30
   },
   {
-    eng: "acuire",
+    eng: "acquire",
     uzb: [
       "olmoq",
       "egallamoq",
@@ -129,7 +129,7 @@ let vocabulary = [
     eng: "potion",
     uzb: [
       "damlama",
-      "eliksiz"
+      "eliksir"
     ],
     data: 30
   },

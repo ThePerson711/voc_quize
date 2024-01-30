@@ -26,8 +26,15 @@ let answer = {
     incorrect: 0,
     unselect: 0
 };
+let col = {
+    r: 0,
+    g: 0,
+    b: 0
+};
 
-SearchList();
+//SearchList();
+WordList();
+WordChoise('all');
 
 function WordsList() {
     inp_s = document.getElementById('search-input').value;
@@ -129,8 +136,28 @@ function WordChoise(choise_) {
     Test();
 }
 
-function Test() {
+function Timer_Start() {
+    timer_time = 50;
+    id_ = setInterval( () => {
+        timer_time--;
+        if (timer_time <= 0 ) {
+            Selected(0);
+            clearInterval(id_);
+            document.getElementById('timer-line').style = 
+            `width: 100%;`;
+        }
+        col.b = 0;
+        col.r = 255 - (timer_time * 4);
+        col.g = timer_time * 4 + 5;
+        document.getElementById('timer-line').style = 
+        `width: calc(1vw*${60*timer_time/50});
+        background-color: rgb(${col.r}, ${col.g}, ${col.b});
+        `;
+    },100)
+}
 
+function Test() {
+    Timer_Start();
     tested++;
     num_of_t = 10;
     if (tested <= num_of_t) {
@@ -174,7 +201,7 @@ function Test() {
         document.getElementById(`option_3`).innerHTML = ArrToStr(voc[RanNum_3].uzb);    
         document.getElementById(`option_4`).innerHTML = ArrToStr(voc[RanNum_4].uzb);    
     } else {
-        alert(`Correct: ${answer.correct}\nIn-correct: ${answer.incorrect}`);
+        alert(`Correct: ${answer.correct}\nIn-correct: ${answer.incorrect}\nUn-selected: ${answer.unselect}`);
         WordList();
     }
 }
@@ -193,20 +220,26 @@ function ArrToStr(obj_) {
 }
 
 function Selected(num_) {
+    clearInterval(id_);
     if (num_ === RightAnswer) {
         document.getElementById(`option_${num_}`).style = "background-color: green;";
         answer.correct++;
-    } else {
+    } else if (num_ !== RightAnswer && num_ !== 0) {
         document.getElementById(`option_${num_}`).style = "background-color: red;";
         document.getElementById(`option_${RightAnswer}`).style = "background-color: green;";
         answer.incorrect++;
+    } else if (num_ === 0) {
+        document.getElementById(`option_${RightAnswer}`).style = "background-color: green;";
+        answer.unselect++;
     }
     id = setInterval( () => {
-        document.getElementById(`option_${num_}`).style = "background-color: violet;";
+        if (num_ !== 0) {
+            document.getElementById(`option_${num_}`).style = "background-color: violet;";
+        }
         document.getElementById(`option_${RightAnswer}`).style = "background-color: violet;";
         Test();
         clearInterval(id);
-    },500)
+    },750)
 }
 
 function day_for_ch(str_) {

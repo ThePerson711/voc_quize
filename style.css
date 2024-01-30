@@ -20,6 +20,9 @@
   --changer-height: calc(1vh*8);
   --main-panel-height: calc(1vh*66);
   --main-panel-width: calc(1vw*80);
+  --timer-width: calc(1vw*70);
+  --timer-height: calc(1vh*3);
+  --timer-border-radius: calc(1vh*1.5);
 }
 body {
   background-color: aqua;
@@ -249,4 +252,24 @@ body {
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
+}
+.timer-panel {
+  background-color: rgb(150, 150, 150);
+  width: var(--timer-width);
+  height: var(--timer-height);
+  border-radius: var(--timer-border-radius);
+  border: solid 2px black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+.timer-line {
+  width: 100%;
+  background-color: green;
+  height: 100%;
+  border-radius: var(--timer-border-radius);
+  border: none;
+  border-right: solid 2px black;
+  position:relative;
 }
