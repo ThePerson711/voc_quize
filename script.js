@@ -31,6 +31,7 @@ let col = {
     g: 0,
     b: 0
 };
+let id,id_;
 
 //SearchList();
 WordList();
@@ -108,19 +109,17 @@ function Words() {
 }
 
 function WordChoise(choise_) {
-    document.getElementById('word-l').style = "display: none;"
-    document.getElementById('quize-l').style = "display: flex;"    
+    cl_int();  
     tested = 0;
+    voc = [];
     if (choise_ === 'all') {
-        voc = [];
         for (let i = 0; i < vocabulary.length; i++) {
             voc.push({
                 eng: vocabulary[i].eng,
                 uzb: vocabulary[i].uzb,
               });
         }
-    } {
-        voc = [];
+    } else {
         for (let i = 0; i < vocabulary.length; i++) {
             if (vocabulary[i].data === day_for_ch(choise_)) {
                 voc.push({
@@ -130,17 +129,23 @@ function WordChoise(choise_) {
             }
         }
     }
-    answer.correct = 0;
-    answer.incorrect = 0;
-    answer.unselect = 0;
-    Test();
+    if (voc.length === 0 ) {
+        alert('Belgilangan kunda lug`atlar yo`q!');
+    } else {
+        document.getElementById('word-l').style = "display: none;"
+        document.getElementById('quize-l').style = "display: flex;"  
+        answer.correct = 0;
+        answer.incorrect = 0;
+        answer.unselect = 0;
+        Test();
+    }
 }
 
 function Timer_Start() {
     timer_time = 50;
     id_ = setInterval( () => {
         timer_time--;
-        if (timer_time <= 0 ) {
+        if (timer_time <= 1 ) {
             Selected(0);
             clearInterval(id_);
             document.getElementById('timer-line').style = 
@@ -221,6 +226,10 @@ function ArrToStr(obj_) {
 
 function Selected(num_) {
     clearInterval(id_);
+    document.getElementById('option_1').style="pointer-events: none;";
+    document.getElementById('option_2').style="pointer-events: none;";
+    document.getElementById('option_3').style="pointer-events: none;";
+    document.getElementById('option_4').style="pointer-events: none;";
     if (num_ === RightAnswer) {
         document.getElementById(`option_${num_}`).style = "background-color: green;";
         answer.correct++;
@@ -237,9 +246,13 @@ function Selected(num_) {
             document.getElementById(`option_${num_}`).style = "background-color: violet;";
         }
         document.getElementById(`option_${RightAnswer}`).style = "background-color: violet;";
+        document.getElementById('option_1').style="pointer-events: auto;";
+        document.getElementById('option_2').style="pointer-events: auto;";
+        document.getElementById('option_3').style="pointer-events: auto;";
+        document.getElementById('option_4').style="pointer-events: auto;";
         Test();
         clearInterval(id);
-    },750)
+    },1750)
 }
 
 function day_for_ch(str_) {
@@ -257,7 +270,6 @@ function day_for_ch(str_) {
         day_for_now--;
     }
     console.log('--'+day_for_now);
-
     return day_for_now;
 }
 
@@ -270,3 +282,8 @@ function DetectDate() {
 }
 
 console.log(day_for_ch('today'));
+
+function cl_int() {
+    clearInterval(id);
+    clearInterval(id_);
+}

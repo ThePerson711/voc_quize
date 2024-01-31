@@ -7,7 +7,7 @@
   <link href="style.css" rel="stylesheet">
 </head>
 <body>
-  <div class="top-panel" id="top-panel">
+  <div class="top-panel" id="top-panel" >
       <div class="search-panel" id="search-panel">
         <input type="text" id="search-input" class="search-input" 
           placeholder="Search" oninput="WordsList();">
@@ -74,11 +74,11 @@
 
   <div class="menu-panel" id="menu-panel">
     <div class="menu-element" id="menu-search " 
-      onclick="SearchList();">
+      onclick="SearchList();cl_int();">
       Search
     </div>
     <div class="menu-element" id="menu-words"
-      onclick="WordList();">
+      onclick="WordList();cl_int();">
       Test
     </div>
   </div>
