@@ -4,85 +4,65 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vocabulary</title>
-  <link href="style.css" rel="stylesheet">
+  <link href="main.css" rel="stylesheet">
 </head>
 <body>
-  <div class="top-panel" id="top-panel" >
-      <div class="search-panel" id="search-panel">
-        <input type="text" id="search-input" class="search-input" 
-          placeholder="Search" oninput="WordsList();">
-      </div>
-      <div class="test-indicator" id="test-indicator">
-        Words<p>asd</p>
-      </div>
-  </div>
-
-  <div class="search-l" id="search-l">
-    <div class="main-panel" id="main-panel">
-      </div>
-    <div class="changer" id="changer" onclick="
-      if (lang_dir === 'eng-to-uz') {
-        lang_dir = 'uz-to-eng';
-        document.getElementById('changer').innerHTML=`UZ >> ENG`;
-      } else {
-        lang_dir = 'eng-to-uz';
-        document.getElementById('changer').innerHTML='ENG >> UZ';
-      }
-      WordsList();
-    ">
-      ENG >> UZ
+  <div id="all_screen" class="all_screen">
+    <div class="top_panel" id="top_panel">
+      ?dasf
     </div>
-  </div>
-   
-  <div class="word-l" id="word-l">
-    <div class="main-panel" id="main-panel-1">
-    </div>
-  </div>
-
-  <div class="quize-l" id="quize-l">
-    <div class="quize-panel" id="quize-panel">
-      <div class="eng-word" id="eng-word">
-        Book
+    <div class="work_panel" id="work_panel">
+      <div class="list_options" id="list_addword">
+        <input class="addword_inp" type="text" id="addword_inp_eng_text"
+          placeholder="English">
+        <input class="addword_inp" type="text" id="addword_inp_uzb_text"
+          placeholder="Uzbek">
+        <button class="addword_btn" id="addword_btn_add">
+          Add
+        </button>
       </div>
-
-      <div class="options" id="options">
-        <div class="options_" id="option_1" 
-          onclick="Selected(1);">
-          kitob
+      <div class="list_options" id="list_listword">
+        <div class="search_div">
+          <input class="search_inp" id="search_inp"
+            placeholder="Search" type="text">
+          <button class="search_btn" id="change_search_lang">
+            Eng >> Uz
+          </button>
         </div>
-        <div class="options_" id="option_2"
-          onclick="Selected(2);">
-          daftar
-        </div>
-        <div class="options_" id="option_3"
-          onclick="Selected(3);">
-          qalamss
-        </div>
-        <div class="options_" id="option_4"
-          onclick="Selected(4);">
-          okay
-        </div>  
+        <div class="find_list_div" id="find_list_div">
+          </div>
       </div>
-      <div class="timer-panel" id="timer-panel">
-        <div class="timer-line" id="timer-line">
+      <div class="list_options" id="list_testword">
+        <div class="test_v1" id="test_v1">
+          <div class="test_check_panel" id="test_check_panel">
+            <div class="test_check_tf" id="test_check_true">
+              True
+            </div>
+            <div class="test_check_tf" id="test_check_false">
+              False
+            </div>
+          </div>
+          <div class="test_answer" id="test_answer">
+            Kitob
+          </div>
+          <div class="test_question" id="test_question">
+            Book
+          </div>
         </div>
       </div>
-
+    </div>
+    <div class="menu_panel" id="menu_panel">
+      <div class="menu_options" id="menu_addword">
+        Add
+      </div>
+      <div class="menu_options" id="menu_listword">
+        List
+      </div>
+      <div class="menu_options" id="menu_testword">
+        Test
+      </div>
     </div>
   </div>
-
-
-  <div class="menu-panel" id="menu-panel">
-    <div class="menu-element" id="menu-search " 
-      onclick="SearchList();cl_int();">
-      Search
-    </div>
-    <div class="menu-element" id="menu-words"
-      onclick="WordList();cl_int();">
-      Test
-    </div>
-  </div>
-  <script src="voc.js"></script>
-  <script src="script.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
